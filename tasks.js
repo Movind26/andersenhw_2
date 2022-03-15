@@ -1,5 +1,6 @@
-function makeObjectDeepCopy(inObject){
-  if (Object.keys(inObject) === 0 || typeof inObject !== 'object'){
+function makeObjectDeepCopy(inObject) {
+
+  if (Object.keys(inObject) === 0 || typeof inObject !== 'object') {
     return inObject;
   }
 
@@ -12,11 +13,11 @@ function makeObjectDeepCopy(inObject){
   return outObject;
 }
 
-function selectFromInterval(numArray, firstInterval, secondInterval){
+function selectFromInterval(numArray, firstInterval, secondInterval) {
   
-  if(typeof numArray !== 'object' || numArray.every((item) => typeof item !== 'number')){
+  if(typeof numArray !== 'object' || numArray.every((item) => typeof item !== 'number')) {
     throw new Error('Invalid Array!');
-  } else if (typeof firstInterval !== 'number' || typeof secondInterval !== 'number'){
+  } else if (typeof firstInterval !== 'number' || typeof secondInterval !== 'number') {
     throw new Error('Invalid interval!');
   }
   
