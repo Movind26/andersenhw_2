@@ -1,21 +1,21 @@
 function makeObjectDeepCopy(inObject) {
+  const objectKeys = Object.keys(inObject);
 
-  if (Object.keys(inObject) === 0 || typeof inObject !== 'object') {
+  if (objectKeys.length === 0 || typeof inObject !== 'object') {
     return inObject;
   }
 
   const outObject = Array.isArray(inObject) ? [] : {};
 
-  for (const key of Object.keys(inObject)) {
-    outObject[key] = makeObjectDeepCopy(inObject[key]);
-  }
+  objectKeys.forEach(element => {
+    outObject[element] = makeObjectDeepCopy(inObject[element])
+  });
 
   return outObject;
 }
 
 function selectFromInterval(numArray, firstInterval, secondInterval) {
-  
-  if(typeof numArray !== 'object' || numArray.every((item) => typeof item !== 'number')) {
+    if (typeof numArray !== 'object' || numArray.every((item) => typeof item !== 'number')) {
     throw new Error('Invalid Array!');
   } else if (typeof firstInterval !== 'number' || typeof secondInterval !== 'number') {
     throw new Error('Invalid interval!');
@@ -26,8 +26,7 @@ function selectFromInterval(numArray, firstInterval, secondInterval) {
   } else {
     return numArray.filter((num) => secondInterval <= num && num <= firstInterval);
   }
- 
-}
+ }
 
 function* myIterable(from, to) {
   const isValidInput = true;
