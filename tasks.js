@@ -30,9 +30,9 @@ function selectFromInterval(numArray, firstInterval, secondInterval) {
 }
 
 function* myIterable(from, to) {
-  const isValid = true;
+  const isValidInput = true;
 
-  switch (isValid) {
+  switch (isValidInput) {
     case (to < from):
       throw new Error('TO is less than FROM');
     case (from === undefined || to === undefined):
